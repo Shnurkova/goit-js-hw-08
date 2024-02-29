@@ -96,6 +96,8 @@ function handleModalOpen(event) {
         </a>
     </div>
 `)
+    
+    instance.show();
 }
 
 function createMarkup(arr) {
