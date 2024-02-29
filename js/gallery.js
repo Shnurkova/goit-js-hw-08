@@ -82,6 +82,4 @@ function addImages(images) {
     }
 
     galleryUl.insertAdjacentHTML("afterbegin", galleryList.join(""))
-
-    galleryUl.addEventListener(event)
 }
