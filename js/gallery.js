@@ -70,6 +70,19 @@ galleryUl.innerHTML = createMarkup(images)
 galleryUl.addEventListener("click", handleModalOpen);
 
 function handleModalOpen(event) {
+    event.preventDefault();
+
+    if (event.currentTarget === event.target) return;
+
+    console.log(event.target.closest(".gallery-item"));
+
+    const selectedImg = event.target.closest(".gallery-item");
+
+    const originalImg = selectedImg.dataset.original;
+
+    const img = images.find(({ original }) => original === originalImg);
+
+    console.log(img);
 }
 
 function createMarkup(arr) {
