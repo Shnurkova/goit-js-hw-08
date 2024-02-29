@@ -66,20 +66,21 @@ const images = [
 
 const galleryUl = document.querySelector(".gallery");
 
-function addImages(images) {
+galleryUl.innerHTML = createMarkup(images)
 
-    const galleryList = [];
-
-    for (const img of images) {
-        galleryList.push(`<li class="gallery-item">
-            <a class="gallery-link" href="${img.original}">
-            <img class="gallery-image"
-            src="${img.preview}"
-            data-source="${img.original}"
-            alt="${img.description}"/>
-            </a>
-         </li>`)
-    }
-
-    galleryUl.insertAdjacentHTML("afterbegin", galleryList.join(""))
+function createMarkup(arr) {
+    return arr.map(({preview, original, description }) => `
+    <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+        <img
+        class="gallery-image"
+        src="${preview}"
+        data-source="${original}"
+        alt="${description}"
+        />
+        </a>
+    </li>
+    `
+    )
+    .join("")
 }
