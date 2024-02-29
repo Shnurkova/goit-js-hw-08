@@ -83,6 +83,19 @@ function handleModalOpen(event) {
     const img = images.find(({ original }) => original === originalImg);
 
     console.log(img);
+
+    const instance = basicLightbox.create(`
+	<div class="modal">
+        <a class="modal-link" href="${img.original}">
+        <img
+        class="gallery-image"
+        src="${img.preview}"
+        data-source="${img.original}"
+        alt="${img.description}"
+        />
+        </a>
+    </div>
+`)
 }
 
 function createMarkup(arr) {
