@@ -67,6 +67,10 @@ const images = [
 const galleryUl = document.querySelector(".gallery");
 
 galleryUl.innerHTML = createMarkup(images)
+galleryUl.addEventListener("click", handleModalOpen);
+
+function handleModalOpen(event) {
+}
 
 function createMarkup(arr) {
     return arr.map(({preview, original, description }) => `
