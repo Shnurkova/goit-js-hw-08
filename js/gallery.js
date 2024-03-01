@@ -77,8 +77,8 @@ function handleModalOpen(event) {
     console.log(event.target.closest(".gallery-item"));
 
     const selectedImg = event.target.closest(".gallery-item");
-
-    const originalImg = selectedImg.dataset.original;
+    if (!selectedImg) return;
+    const originalImg = selectedImg.querySelector(".gallery-image").dataset.source;
 
     const img = images.find(({ original }) => original === originalImg);
 
@@ -116,3 +116,4 @@ function createMarkup(arr) {
     )
     .join("")
 }
+
