@@ -74,22 +74,17 @@ function handleModalOpen(event) {
 
     if (event.currentTarget === event.target) return;
 
-    console.log(event.target.closest(".gallery-item"));
-
     const selectedImg = event.target.closest(".gallery-item");
     if (!selectedImg) return;
     const originalImg = selectedImg.querySelector(".gallery-image").dataset.source;
 
     const img = images.find(({ original }) => original === originalImg);
 
-    console.log(img);
-
     const instance = basicLightbox.create(`
 	<div class="modal">
-        <a class="modal-link" href="${img.original}">
         <img
         class="gallery-image"
-        src="${img.preview}"
+        src="${img.original}"
         data-source="${img.original}"
         alt="${img.description}"
         />
